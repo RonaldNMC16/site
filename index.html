@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebeca & Ronald 💜✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --roxo: #6a0dad;
+            --roxo-claro: #9b59b6;
+            --rosa: #e91e63;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0033, #330033);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .frase {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+        }
+
+        .contador {
+            background: rgba(0,0,0,0.3);
+            padding: 15px 25px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.3rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--roxo-claro);
+            text-align: center;
+        }
+
+        .tempo-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tempo-item {
+            background: rgba(106, 13, 173, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+
+        .tempo-valor {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffccff;
+        }
+
+        .tempo-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        #surpresa {
+            background: linear-gradient(to right, var(--rosa), var(--roxo));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px var(--roxo-claro);
+        }
+
+        #surpresa:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--roxo-claro);
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .foto {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            aspect-ratio: 1/1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .foto:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(154, 59, 181, 0.5);
+        }
+
+        .petala, .coracao {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.5rem;
+            z-index: 5;
+        }
+
+        .coracao {
+            font-size: 1.8rem;
+            animation: voar 3s linear forwards;
+            z-index: 20;
+        }
+
+        @keyframes cair {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes voar {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .tempo-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .tempo-item {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minha princesinha 💜✨</h1>
+        <div class="frase">
+            <p>Posso não conseguir lhe dar muita coisa agora, porém com o pouco que tenho consigo pelo menos fazer você feliz. Saiba que tem alguém aqui que te ama muito e só quer que você seja a princesinha dele. É euuuu 🥹💜✨</p>
+        </div>
+
+        <div class="contador">
+            <div>Juntos desde: 03/08/2023</div>
+            <div class="tempo-container">
+                <div class="tempo-item">
+                    <div class="tempo-valor" id="dias">0</div>
+                    <div class="tempo-label">Dias</div>
+                </div>
+                <div class="tempo-item">
+                    <div class="tempo-valor" id="horas">0</div>
+                    <div class="tempo-label">Horas</div>
+                </div>
+                <div class="tempo-item">
+                    <div class="tempo-valor" id="minutos">0</div>
+                    <div class="tempo-label">Minutos</div>
+                </div>
+                <div class="tempo-item">
+                    <div class="tempo-valor" id="segundos">0</div>
+                    <div class="tempo-label">Segundos</div>
+                </div>
+            </div>
+        </div>
+
+        <button id="surpresa">Aperte para Surpresa! 💜✨</button>
+    </header>
+
+    <div class="galeria" id="galeria"></div>
+
+    <audio id="musica" loop>
+        <source src="dandelions.mp3" type="audio/mp3">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script>
+        const imagens = [
+            "IMG_20241002_162111_1.jpg", "IMG_20240627_161839_1.jpg", "IMG_20241115_213257.jpg",
+            "IMG_20240729_164843_558_1.webp", "IMG_20240627_161950_1.jpg", "IMG_20240627_162220_1.jpg",
+            "IMG_20241001_153731_1.jpg", "IMG_20240416_161518_127_1.jpg", "IMG_20240416_162224_358_1.jpg",
+            "IMG_20240416_162422_079_1.jpg", "IMG_20240627_161843_1.jpg", "IMG_20241226_115437_1.jpg",
+            "IMG-20231127-WA0011.jpg", "IMG_20241202_150158_248_1.webp", "IMG-20231127-WA0003.jpg",
+            "IMG_20240725_153835_684_1.webp", "IMG_20240729_164213_1.jpg", "IMG_20240409_164203_719_1.jpg",
+            "IMG_20240416_161828_055_1.jpg", "IMG_20240521_162322_576_1.webp", "IMG_20241002_162128_1.jpg",
+            "IMG_20240627_161901_1.jpg", "IMG_20241115_213350.jpg", "IMG_20241121_162519_1.jpg"
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const musica = document.getElementById('musica');
+            const dataInicio = new Date('2023-08-03');
+
+            function atualizarContador() {
+                const agora = new Date();
+                const diff = agora - dataInicio;
+                const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('dias').textContent = dias;
+                document.getElementById('horas').textContent = horas;
+                document.getElementById('minutos').textContent = minutos;
+                document.getElementById('segundos').textContent = segundos;
+            }
+
+            setInterval(atualizarContador, 1000);
+            atualizarContador();
+
+            // Surpresa: toca música e mostra efeitos
+            document.getElementById('surpresa').addEventListener('click', () => {
+                musica.play().then(() => {
+                    console.log("🎶 Música tocando!");
+                }).catch((err) => {
+                    alert("⚠️ Clique na tela para ativar o som.");
+                    console.error(err);
+                });
+
+                for (let i = 0; i < 30; i++) {
+                    criarElemento('💜', 'coracao');
+                    criarElemento('✨', 'coracao');
+                }
+            });
+
+            function criarPetala() {
+                const emojis = ['🌸', '🌼', '🌺', '🌷'];
+                const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+                criarElemento(emoji, 'petala');
+            }
+
+            setInterval(criarPetala, 300);
+
+            function criarElemento(emoji, classe) {
+                const el = document.createElement('div');
+                el.className = classe;
+                el.innerHTML = emoji;
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+                el.style.animation = (classe === 'petala' ? 'cair' : 'voar') + ' ' + (Math.random() * 3 + 2) + 's linear forwards';
+                el.style.top = classe === 'petala' ? '-50px' : (Math.random() * 50 + 50) + 'vh';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 5000);
+            }
+
+            const galeria = document.getElementById('galeria');
+            imagens.forEach((img, i) => {
+                const foto = document.createElement('div');
+                foto.className = 'foto';
+                foto.style.backgroundImage = `url('imagens/${img}')`;
+
+                const numero = document.createElement('div');
+                numero.textContent = i + 1;
+                numero.style.position = 'absolute';
+                numero.style.bottom = '10px';
+                numero.style.right = '10px';
+                numero.style.background = 'rgba(0,0,0,0.7)';
+                numero.style.padding = '3px 8px';
+                numero.style.borderRadius = '10px';
+                foto.appendChild(numero);
+
+                galeria.appendChild(foto);
+            });
+
+            musica.volume = 0.3;
+        });
+    </script>
+</body>
+</html>
+
